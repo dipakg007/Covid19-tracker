@@ -14,7 +14,7 @@ function Navbar() {
         <div className="col-11 mx-auto">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <NavLink to="/">
-              <img className="navbar__logo" src={logo} />
+              <img className="navbar__logo" src={logo} alt="Covid19-tracker"/>
             </NavLink>
             <button
               className="navbar-toggler"
