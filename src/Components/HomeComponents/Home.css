@@ -1,11 +1,25 @@
+.home__header {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+}
 .home__logo {
   width: 45px;
   height: 45px;
 }
 .home__headercomp {
   display: flex;
-  margin-top: 30px;
 }
 .home__headercomp h1 {
   margin-left: 20px;
+  font-weight: bold;
+}
+.homedrop__item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.homedrop__item h5 {
+  margin-left: 10px;
+  font-weight: bold;
 }
