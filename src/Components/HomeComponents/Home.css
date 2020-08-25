@@ -1,6 +1,7 @@
 .home__header {
   display: flex;
   margin-top: 30px;
+  margin-bottom: 30px;
   justify-content: space-between;
 }
 .home__logo {
@@ -22,4 +23,14 @@
 .homedrop__item h5 {
   margin-left: 10px;
   font-weight: bold;
+}
+.home__stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+@media (max-width: 990px) {
+  .home__stats {
+    flex-direction: column;
+  }
 }
