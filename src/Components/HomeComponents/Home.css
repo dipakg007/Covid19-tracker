@@ -1,0 +1,11 @@
+.home__logo {
+  width: 45px;
+  height: 45px;
+}
+.home__headercomp {
+  display: flex;
+  margin-top: 30px;
+}
+.home__headercomp h1 {
+  margin-left: 20px;
+}
