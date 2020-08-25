@@ -62,7 +62,7 @@ function Home() {
         <div className="col-11 mx-auto">
           <div className="home__header">
             <div className="home__headercomp">
-              <img src={logo} className="home__logo" />
+              <img src={logo}  alt="Covid19-tracker" className="home__logo" />
               <h1>STATISTICS</h1>
             </div>
             <div>
