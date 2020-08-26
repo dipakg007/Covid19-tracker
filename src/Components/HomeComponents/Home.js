@@ -132,7 +132,7 @@ function Home() {
           <div className="home__graph">
             <Card className="home__graphbox">
               <CardContent>
-                <LineGraph />
+                <LineGraph casesType="cases" />
               </CardContent>
             </Card>
             <Card className="home__graphbox">
