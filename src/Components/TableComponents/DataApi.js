@@ -1,6 +1,5 @@
 import React, {useEffect,useState} from 'react';
 import './Table.css';
-import axios from 'axios';
 import TextField from '@material-ui/core/TextField';
 import MultCheck from './MultipleSelect';
 import Tablehtml from './Tablehtml';
@@ -14,16 +13,16 @@ function DataApi() {
    const [header,setHeader] = useState([]);
 
 
-   useEffect(() => {
-    async function getData() {
-        const res = await axios.get(url);
-        const r=res.data;
-        const headers = r[0] && Object.keys(r[0]);
-        setHeader(headers)
-        setcovidData(r);
-    }
-    getData();   
-   });
+
+    useEffect(() => {
+        fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            const headers = data[0] && Object.keys(data[0]);
+            setHeader(headers);
+            setcovidData(data);
+        });
+    }, []);
 
     return (
         <div className="dataApi__main">
@@ -31,8 +30,8 @@ function DataApi() {
                 <TextField type="text" className="search"  placeholder="search..." value={search} onChange={e => setSearch(e.target.value)} />
                 <MultCheck column={header}/>
             </div>
-            {/* <Tablehtml covid={covidData} sear={search}/>  */}
-          <ColTable covid={covidData} sear={search}/> 
+            {/* <Tablehtml covid={covidData} sear={search}/>   */}
+            <ColTable covid={covidData} sear={search}/>
         </div>
     )
 }
