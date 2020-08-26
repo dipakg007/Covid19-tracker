@@ -5,11 +5,20 @@ import newcase from "./images/virus.png";
 import newrecover from "./images/heartbeat.png";
 import newdeaths from "./images/death.png";
 import "./Home.css";
-import { FormControl, Select, MenuItem, Avatar } from "@material-ui/core";
+import {
+  FormControl,
+  Select,
+  MenuItem,
+  Avatar,
+  Card,
+  CardContent,
+} from "@material-ui/core";
 import InfoBox from "./InfoBox";
 import Map from "./Map";
 import { prettyPrintStat } from "./util";
 import numeral from "numeral";
+import LineGraph from "./LineGraph";
+import PieGraph from "./PieGraph";
 
 function Home() {
   const [countries, setCountries] = useState(["India", "Usa", "UK"]);
@@ -62,7 +71,7 @@ function Home() {
         <div className="col-11 mx-auto">
           <div className="home__header">
             <div className="home__headercomp">
-              <img src={logo}  alt="Covid19-tracker" className="home__logo" />
+              <img src={logo} alt="Covid19-tracker" className="home__logo" />
               <h1>STATISTICS</h1>
             </div>
             <div>
@@ -120,6 +129,18 @@ function Home() {
             />
           </div>
           <Map />
+          <div className="home__graph">
+            <Card className="home__graphbox">
+              <CardContent>
+                <LineGraph />
+              </CardContent>
+            </Card>
+            <Card className="home__graphbox">
+              <CardContent>
+                <PieGraph />
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </div>

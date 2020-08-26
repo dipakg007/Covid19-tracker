@@ -29,8 +29,27 @@
   justify-content: space-between;
   margin-bottom: 30px;
 }
+.home__graph {
+  display: flex;
+}
+.home__graphbox {
+  flex: 1 !important;
+  border: 0.1px solid lightgrey;
+}
+.home__graphbox:not(:last-child) {
+  margin-right: 20px;
+}
 @media (max-width: 990px) {
   .home__stats {
     flex-direction: column;
+  }
+  .home__graph {
+    flex-direction: column;
+  }
+  .home__graphbox:not(:last-child) {
+    margin-right: 0px;
+  }
+  .home__graphbox {
+    margin-bottom: 20px !important;
   }
 }
