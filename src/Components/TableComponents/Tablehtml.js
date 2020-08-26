@@ -1,14 +1,23 @@
 import React from 'react';
+import { TableContainer, makeStyles } from '@material-ui/core';
+const useRowStyles = makeStyles({
+    container:{
+        maxHeight: 1000,
+    },
+  });
+
+
 
 function Tablehtml({covid,sear}) {
 
+    const classes = useRowStyles();
     const filterdata = covid.filter(data1 =>{
         return data1.country.toLowerCase().includes(sear.toLowerCase() )
     })
     return (
-        <>
         <div className="table-responsive">
-            <table className="table table-hover">
+        <TableContainer className={classes.container}>
+            <table stickyHeader aria-label="collapsible table sticky table" className="table table-hover" >
                 <thead>
                     <tr>
                     <th scope="col">S.No</th>
@@ -34,8 +43,8 @@ function Tablehtml({covid,sear}) {
                    }
                 </tbody>
             </table>
-        </div>  
-    </>
+            </TableContainer>  
+        </div>
     );
 }
 
