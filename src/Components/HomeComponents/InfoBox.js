@@ -15,7 +15,7 @@ function InfoBox({ title, cases, total, image }) {
             <Typography className="infoBox__total">{total} Total</Typography>
           </div>
           <div className="infoBox__right">
-            <img className="infoBox__logo" src={image}></img>
+            <img className="infoBox__logo" src={image} alt="logo"></img>
           </div>
         </div>
       </CardContent>
