@@ -14,23 +14,30 @@ const useStyles = makeStyles({
     formControl: {
       minWidth: 120,
       maxWidth: 300,
-      position:"relative",
     },
+    Sel:{
+      position: "fixed",
+    }
   });
-function MultipleSelect({column}) {
+function MultipleSelect({column,cols}) {
 
     const classes = useStyles();
     const [personName, setPersonName] = useState([]);
 
     const handleChange = (event) => {
         setPersonName(event.target.value);
+        cols(event.target.value);
     };
+
+    
+
     return (
         
         <div>
             <FormControl className={classes.formControl}>
                 <InputLabel id="demo-mutiple-checkbox-label">Column</InputLabel>
                 <Select
+                  className={classes.sel}
                   labelId="demo-mutiple-checkbox-label"
                   id="demo-mutiple-checkbox"
                   multiple

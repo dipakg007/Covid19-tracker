@@ -1,8 +1,7 @@
 import React, {useEffect,useState} from 'react';
 import './Table.css';
 import TextField from '@material-ui/core/TextField';
-import MultCheck from './MultipleSelect';
-import Tablehtml from './Tablehtml';
+
 import ColTable from './ColTable'
 
 function DataApi() {
@@ -28,12 +27,10 @@ function DataApi() {
         <div className="dataApi__main">
             <div className="search">
                 <TextField type="text" className="search"  placeholder="search..." value={search} onChange={e => setSearch(e.target.value)} />
-                <MultCheck column={header}/>
             </div>
-            {/* <Tablehtml covid={covidData} sear={search}/>   */}
-            <ColTable covid={covidData} sear={search}/>
+            <ColTable covid={covidData} sear={search} column={header}/>
         </div>
     )
 }
 
-export default DataApi
+export default DataApi; 
