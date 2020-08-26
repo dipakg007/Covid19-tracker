@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Collapse from '@material-ui/core/Collapse';
@@ -14,7 +13,9 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-
+import MultCheck from './MultipleSelect';
+import { Avatar } from '@material-ui/core';
+import './Table.css';
 const useRowStyles = makeStyles({
   root: {
     '& > *': {
@@ -22,27 +23,10 @@ const useRowStyles = makeStyles({
     },
   },
   container:{
-      maxHeight: 1000,
+      maxHeight: 700,
   },
 });
-
-// function createData(name, calories, fat, carbs, protein, price) {
-//   return {
-//     name,
-//     calories,
-//     fat,
-//     carbs,
-//     protein,
-//     price,
-//     history: [
-//       { date: '2020-01-05', customerId: '11091700', amount: 3 },
-//       { date: '2020-01-02', customerId: 'Anonymous', amount: 1 },
-//     ],
-//   };
-// }
-
-function Row(props) {
-  const { row } = props;
+function Row({key,row,head}) {
   const [open, setOpen] = React.useState(false);
   const classes = useRowStyles();
 
@@ -54,14 +38,15 @@ function Row(props) {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
+        <TableCell align="right"><Avatar src={row.countryInfo.flag} alt={row.country}/></TableCell>
         <TableCell component="th" scope="row">{row.country}</TableCell>
-        <TableCell align="right">{row.cases}</TableCell>
-        <TableCell align="right">{row.active}</TableCell>
-        <TableCell align="right">{row.recovered}</TableCell>
-        <TableCell align="right">{row.deaths}</TableCell>
+        
+        {head.map((name)=>(
+          <TableCell align="right">{row[name]}</TableCell>
+        ))}
       </TableRow>
       <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={head.length+3}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box margin={1}>
               <Typography variant="h6" gutterBottom component="div">
@@ -100,30 +85,38 @@ function Row(props) {
 }
 
 
-export default function ColTable({covid,sear}) {
+export default function ColTable({covid,sear,column}) {
     const classes = useRowStyles();
     const filterdata = covid.filter(data1 =>{
         return data1.country.toLowerCase().includes(sear.toLowerCase() )
     })
+    const [header,setHeader] = useState(['cases','active','recovered','deaths']);
+    const headers = (col) =>{
+      const arr=[...header,...col];
+      setHeader(arr);
+    }
   return (
+    <div>
+      <div className="Multi_check"><MultCheck column={column} cols={headers}/></div>
     <TableContainer component={Paper} className={classes.container}>
-      <Table stickyHeader aria-label="collapsible table sticky table">
+      <Table stickyHeader aria-label="collapsible table sticky table" >
         <TableHead>
           <TableRow>
-            <TableCell />
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell className="table_data"/>
+            <TableCell className="table_data">Falg</TableCell>
+            <TableCell className="table_data">Country</TableCell>
+            {header.map((head)=>(
+              <TableCell align="right">{head}</TableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {filterdata.map((row,index) => (
-            <Row key={index} row={row} />
+            <Row key={index} row={row} head={header} />
           ))}
         </TableBody>
       </Table>
     </TableContainer>
+  </div>
   );
 }
