@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   });
 function MultipleSelect({column}) {
 
-    // const classes = useStyles();
+    const classes = useStyles();
     const [personName, setPersonName] = useState([]);
 
     const handleChange = (event) => {
@@ -28,29 +28,7 @@ function MultipleSelect({column}) {
     return (
         
         <div>
-          <FormControl>
-            <InputLabel id="demo-mutiple-checkbox-label">Column</InputLabel>
-            <Select
-            labelId="demo-mutiple-checkbox-label"
-            id="demo-mutiple-checkbox"
-            multiple
-            value={personName}
-            variant="outlined"
-            onchange={handleChange}
-            
-            renderValue={(selected) => selected.join(', ')}
-            input={<Input />}
-            >
-              {column.map((name) => (
-                    <MenuItem key={name} value={name}>
-                      <Checkbox checked={personName.indexOf(name) > -1} />
-                      <ListItemText primary={name} />
-                    </MenuItem>
-                ))}
-
-            </Select>
-          </FormControl>
-            {/* <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl}>
                 <InputLabel id="demo-mutiple-checkbox-label">Column</InputLabel>
                 <Select
                   labelId="demo-mutiple-checkbox-label"
@@ -68,7 +46,7 @@ function MultipleSelect({column}) {
                     </MenuItem>
                 ))}
                 </Select>
-            </FormControl> */}
+            </FormControl>
         </div>
     )
 }
