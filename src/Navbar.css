@@ -32,6 +32,7 @@
 }
 .navbar a:hover {
   color: #09acae !important;
+
 }
 @media (max-width: 991px) {
   .menu__active {

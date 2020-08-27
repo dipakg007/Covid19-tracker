@@ -25,11 +25,14 @@ function MultipleSelect({column,cols}) {
     const [personName, setPersonName] = useState([]);
 
     const handleChange = (event) => {
-        setPersonName(event.target.value);
-        cols(event.target.value);
+        
+        if(!event.target.value.includes('cases') && !event.target.value.includes('active') && !event.target.value.includes('recovered') && !event.target.value.includes('countryInfo') && !event.target.value.includes('deaths') && !event.target.value.includes('country'))
+        {
+          setPersonName(event.target.value);
+          cols(event.target.value);
+        }
+        
     };
-
-    
 
     return (
         
