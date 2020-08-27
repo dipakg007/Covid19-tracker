@@ -1,7 +1,7 @@
 import React from "react";
 const heading = {
       backgroundColor: '#80ffd4', 
-      padding: '20px', 
+      padding: '5%', 
       textAlign: 'center', 
     };
 
