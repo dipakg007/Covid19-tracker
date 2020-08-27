@@ -21,9 +21,13 @@ import LineGraph from "./LineGraph";
 import PieGraph from "./PieGraph";
 
 function Home() {
-  const [countries, setCountries] = useState(["India", "Usa", "UK"]);
+  const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState("Worldwide");
   const [countryInfo, setCountryInfo] = useState({});
+  const [countryName, setCountryName] = useState("Worldwide");
+  const [days, setdays] = useState(30);
+  const [totalDays, setTotalDays] = useState([15, 30, 45, 60, 90, 120, 150]);
+  const [flag, setFlag] = useState(globe);
 
   useEffect(() => {
     const getCountriesData = async () => {
@@ -62,6 +66,13 @@ function Home() {
       .then((data) => {
         setCountry(countryCode);
         setCountryInfo(data);
+        if (countryCode === "Worldwide") {
+          setCountryName("Worldwide");
+          setFlag(globe);
+        } else {
+          setCountryName(data.country);
+          setFlag(data.countryInfo.flag);
+        }
       });
   };
 
@@ -132,12 +143,41 @@ function Home() {
           <div className="home__graph">
             <Card className="home__graphbox">
               <CardContent>
-                <LineGraph casesType="cases" />
+                <div className="graph__dropdown">
+                  <Avatar className="graph__logo" alt="" src={flag} />
+                  <h4>{`${countryName} Last ${days} days new ${"cases"}`}</h4>
+                  <FormControl className="graph__drop">
+                    <Select
+                      variant="outlined"
+                      onChange={(event) => setdays(event.target.value)}
+                      value={days}
+                    >
+                      {totalDays.map((day) => (
+                        <MenuItem value={day}>
+                          <h6>{day}</h6>
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </div>
+                <div className="home__linegraph">
+                  <LineGraph casesType="cases" country={country} days={days} />
+                </div>
+                {/* <h6>Date's</h6> */}
               </CardContent>
             </Card>
             <Card className="home__graphbox">
               <CardContent>
-                <PieGraph />
+                <div className="graph__dropdown2">
+                  <Avatar className="graph__logo" alt="" src={flag} />
+                  <h4>{`${countryName} Status`}</h4>
+                </div>
+                <PieGraph
+                  active={countryInfo.active}
+                  recovered={countryInfo.recovered}
+                  deaths={countryInfo.deaths}
+                  country={country}
+                />
               </CardContent>
             </Card>
           </div>

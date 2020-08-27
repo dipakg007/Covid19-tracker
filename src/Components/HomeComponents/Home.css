@@ -31,6 +31,7 @@
 }
 .home__graph {
   display: flex;
+  margin-bottom: 2rem;
 }
 .home__graphbox {
   flex: 1 !important;
@@ -38,6 +39,32 @@
 }
 .home__graphbox:not(:last-child) {
   margin-right: 20px;
+}
+.home__graphbox h4 {
+  margin-top: 15px;
+  text-transform: capitalize;
+}
+.graph__dropdown {
+  border-bottom: 0.5px solid lightgrey;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+.graph__dropdown2 {
+  display: flex;
+  border-bottom: 0.5px solid lightgrey;
+  justify-content: center;
+  padding-bottom: 18px;
+  margin-bottom: 15px;
+  padding-top: 5px;
+  justify-items: center;
+}
+.graph__dropdown2 h4 {
+  margin-left: 20px;
+}
+.graph__logo {
+  margin-top: 7px;
 }
 @media (max-width: 990px) {
   .home__stats {
