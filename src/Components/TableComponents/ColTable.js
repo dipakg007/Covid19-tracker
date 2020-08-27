@@ -101,8 +101,8 @@ export default function ColTable({covid,column}) {
   return (
     <div>
       <div className="Multi_check">
-        <TextField type="text" className="search"  placeholder="search..." value={search} onChange={e => setSearch(e.target.value)} />
-        <MultCheck column={column} cols={headers}/>
+        <TextField className={classes.root}  variant="outlined"  placeholder="Search for countries..." value={search} onChange={e => setSearch(e.target.value)} />
+        <MultCheck column={column} cols={headers} variant="outlined" className={classes.root}/>
       </div>
     <TableContainer component={Paper} className={classes.container}>
       <Table stickyHeader aria-label="collapsible table sticky table" >
