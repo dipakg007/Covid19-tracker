@@ -14,7 +14,7 @@ import Paper from '@material-ui/core/Paper';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import MultCheck from './MultipleSelect';
-import { Avatar } from '@material-ui/core';
+import { Avatar, TextField } from '@material-ui/core';
 import './Table.css';
 const useRowStyles = makeStyles({
   root: {
@@ -85,19 +85,25 @@ function Row({key,row,head}) {
 }
 
 
-export default function ColTable({covid,sear,column}) {
+export default function ColTable({covid,column}) {
     const classes = useRowStyles();
+    const [search,setSearch] = useState('');
     const filterdata = covid.filter(data1 =>{
-        return data1.country.toLowerCase().includes(sear.toLowerCase() )
+        return data1.country.toLowerCase().includes(search.toLowerCase() )
     })
-    const [header,setHeader] = useState(['cases','active','recovered','deaths']);
+    const [header,setHeader] = useState([]);
+    const static_header=['cases','active','recovered','deaths'];
+    
     const headers = (col) =>{
-      const arr=[...header,...col];
-      setHeader(arr);
+      console.log(col);
+      setHeader(col);
     }
   return (
     <div>
-      <div className="Multi_check"><MultCheck column={column} cols={headers}/></div>
+      <div className="Multi_check">
+        <TextField type="text" className="search"  placeholder="search..." value={search} onChange={e => setSearch(e.target.value)} />
+        <MultCheck column={column} cols={headers}/>
+      </div>
     <TableContainer component={Paper} className={classes.container}>
       <Table stickyHeader aria-label="collapsible table sticky table" >
         <TableHead>
@@ -105,14 +111,15 @@ export default function ColTable({covid,sear,column}) {
             <TableCell className="table_data"/>
             <TableCell className="table_data">FLAG</TableCell>
             <TableCell className="table_data">COUNTRY</TableCell>
-            {header.map((head)=>(
+            {
+            [...static_header,...header].map((head)=>(
               <TableCell align="right">{head.toUpperCase()}</TableCell>
             ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {filterdata.map((row,index) => (
-            <Row key={index} row={row} head={header} />
+            <Row key={index} row={row} head={[...static_header,...header]} />
           ))}
         </TableBody>
       </Table>
