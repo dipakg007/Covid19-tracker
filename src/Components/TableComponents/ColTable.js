@@ -103,10 +103,10 @@ export default function ColTable({covid,sear,column}) {
         <TableHead>
           <TableRow>
             <TableCell className="table_data"/>
-            <TableCell className="table_data">Falg</TableCell>
-            <TableCell className="table_data">Country</TableCell>
+            <TableCell className="table_data">FLAG</TableCell>
+            <TableCell className="table_data">COUNTRY</TableCell>
             {header.map((head)=>(
-              <TableCell align="right">{head}</TableCell>
+              <TableCell align="right">{head.toUpperCase()}</TableCell>
             ))}
           </TableRow>
         </TableHead>
