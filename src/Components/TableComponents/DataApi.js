@@ -1,15 +1,12 @@
 import React, {useEffect,useState} from 'react';
 import './Table.css';
-import TextField from '@material-ui/core/TextField';
-import MultCheck from './MultipleSelect';
-import Tablehtml from './Tablehtml';
+
 import ColTable from './ColTable'
 
 function DataApi() {
 
    const url="https://disease.sh/v3/covid-19/countries";
    const [covidData, setcovidData] = useState([]);
-   const [search,setSearch] = useState('');
    const [header,setHeader] = useState([]);
 
 
@@ -26,14 +23,9 @@ function DataApi() {
 
     return (
         <div className="dataApi__main">
-            <div className="search">
-                <TextField type="text" className="search"  placeholder="search..." value={search} onChange={e => setSearch(e.target.value)} />
-                <MultCheck column={header}/>
-            </div>
-            {/* <Tablehtml covid={covidData} sear={search}/>   */}
-            <ColTable covid={covidData} sear={search}/>
+            <ColTable covid={covidData} column={header}/>
         </div>
     )
 }
 
-export default DataApi;
+export default DataApi; 

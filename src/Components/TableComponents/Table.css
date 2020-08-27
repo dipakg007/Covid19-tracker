@@ -16,3 +16,16 @@
     justify-content: space-between;
     align-items: center;
   }
+  .table_data{
+
+      position: sticky;
+  }
+  .Multi_check{
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      border: solid 1px lightblue;
+  }
+  .main_table{
+      padding-top: 5%;
+  }
