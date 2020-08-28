@@ -52,7 +52,7 @@ function MultipleSelect({column,cols}) {
                 {column.map((name) => (
                     <MenuItem key={name} value={name}>
                       <Checkbox checked={personName.indexOf(name) > -1} />
-                      <ListItemText primary={name} />
+                      <ListItemText primary={name.toUpperCase()} />
                     </MenuItem>
                 ))}
                 </Select>
