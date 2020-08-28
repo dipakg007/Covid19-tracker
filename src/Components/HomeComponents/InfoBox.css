@@ -35,6 +35,16 @@
   margin-top: auto;
 }
 
+.infoBox--cases {
+  border-top: 10px solid #c50711;
+}
+.infoBox--recovered {
+  border-top: 10px solid #2c8c39;
+}
+.infoBox--deaths {
+  border-top: 10px solid #1c519b;
+}
+
 @media (max-width: 990px) {
   .infoBox {
     margin-bottom: 20px !important;

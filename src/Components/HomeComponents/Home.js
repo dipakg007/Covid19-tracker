@@ -19,6 +19,7 @@ import { prettyPrintStat } from "./util";
 import numeral from "numeral";
 import LineGraph from "./LineGraph";
 import PieGraph from "./PieGraph";
+import "leaflet/dist/leaflet.css";
 
 function Home() {
   const [countries, setCountries] = useState([]);
@@ -26,8 +27,21 @@ function Home() {
   const [countryInfo, setCountryInfo] = useState({});
   const [countryName, setCountryName] = useState("Worldwide");
   const [days, setdays] = useState(30);
-  const [totalDays, setTotalDays] = useState([15, 30, 45, 60, 90, 120, 150]);
+  const [totalDays, setTotalDays] = useState([
+    15,
+    30,
+    45,
+    60,
+    90,
+    120,
+    150,
+    180,
+  ]);
   const [flag, setFlag] = useState(globe);
+  const [mapCenter, setMapCenter] = useState({ lat: 20, lng: 77 });
+  const [mapZoom, setMapZoom] = useState(3);
+  const [mapCountries, setMapCountries] = useState([]);
+  const [casesType, setCasesType] = useState("cases");
 
   useEffect(() => {
     const getCountriesData = async () => {
@@ -41,6 +55,7 @@ function Home() {
             flag: country.countryInfo.flag,
           }));
           setCountries(countries);
+          setMapCountries(data);
         });
     };
     getCountriesData();
@@ -69,9 +84,13 @@ function Home() {
         if (countryCode === "Worldwide") {
           setCountryName("Worldwide");
           setFlag(globe);
+          setMapCenter({ lat: 20, lng: 77 });
+          setMapZoom(3);
         } else {
           setCountryName(data.country);
           setFlag(data.countryInfo.flag);
+          setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+          setMapZoom(5);
         }
       });
   };
@@ -113,6 +132,9 @@ function Home() {
 
           <div className="home__stats">
             <InfoBox
+              isCases
+              active={casesType === "cases"}
+              onClick={(e) => setCasesType("cases")}
               title={`Today's ${
                 country === "Worldwide" ? country : countryInfo.country
               } New Cases`}
@@ -122,6 +144,9 @@ function Home() {
             />
 
             <InfoBox
+              isRecovered
+              active={casesType === "recovered"}
+              onClick={(e) => setCasesType("recovered")}
               title={`Today's ${
                 country === "Worldwide" ? country : countryInfo.country
               } Recovered Cases`}
@@ -131,6 +156,9 @@ function Home() {
             />
 
             <InfoBox
+              isDeaths
+              active={casesType === "deaths"}
+              onClick={(e) => setCasesType("deaths")}
               title={`Today's ${
                 country === "Worldwide" ? country : countryInfo.country
               } Deaths Cases`}
@@ -139,13 +167,20 @@ function Home() {
               image={newdeaths}
             />
           </div>
-          <Map />
+          <div className="home__map">
+            <Map
+              countries={mapCountries}
+              center={mapCenter}
+              zoom={mapZoom}
+              casesType={casesType}
+            />
+          </div>
           <div className="home__graph">
             <Card className="home__graphbox">
               <CardContent>
                 <div className="graph__dropdown">
                   <Avatar className="graph__logo" alt="" src={flag} />
-                  <h4>{`${countryName} Last ${days} days new ${"cases"}`}</h4>
+                  <h5>{`${countryName} Last ${days} days new ${casesType}`}</h5>
                   <FormControl className="graph__drop">
                     <Select
                       variant="outlined"
@@ -161,7 +196,11 @@ function Home() {
                   </FormControl>
                 </div>
                 <div className="home__linegraph">
-                  <LineGraph casesType="cases" country={country} days={days} />
+                  <LineGraph
+                    casesType={casesType}
+                    country={country}
+                    days={days}
+                  />
                 </div>
                 {/* <h6>Date's</h6> */}
               </CardContent>
