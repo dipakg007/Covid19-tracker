@@ -85,7 +85,7 @@ function LineGraph({ casesType, country, days }) {
           return response.json();
         })
         .then((data) => {
-          if (country != "Worldwide") {
+          if (country !== "Worldwide") {
             data = data["timeline"];
           }
           let chartData = buildChartData(data, casesType);
