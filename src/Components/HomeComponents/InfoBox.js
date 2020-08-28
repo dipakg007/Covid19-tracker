@@ -13,13 +13,14 @@ function InfoBox({
   isDeaths,
   ...props
 }) {
+  const clname =
+    isCases && active
+      ? "infoBox--cases"
+      : isRecovered && active
+      ? "infoBox--recovered"
+      : "infoBox--deaths";
   return (
-    <Card
-      onClick={props.onClick}
-      className={`infoBox ${active && "infoBox--selected"} ${
-        isCases && "infoBox--cases"
-      }`}
-    >
+    <Card onClick={props.onClick} className={`infoBox ${active && clname}`}>
       <CardContent>
         <div className="infoBox__main">
           <div className="infoBox__left">

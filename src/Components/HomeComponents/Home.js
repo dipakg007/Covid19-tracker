@@ -90,7 +90,7 @@ function Home() {
           setCountryName(data.country);
           setFlag(data.countryInfo.flag);
           setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
-          setMapZoom(4.3);
+          setMapZoom(5);
         }
       });
   };
@@ -180,7 +180,7 @@ function Home() {
               <CardContent>
                 <div className="graph__dropdown">
                   <Avatar className="graph__logo" alt="" src={flag} />
-                  <h4>{`${countryName} Last ${days} days new ${casesType}`}</h4>
+                  <h5>{`${countryName} Last ${days} days new ${casesType}`}</h5>
                   <FormControl className="graph__drop">
                     <Select
                       variant="outlined"
