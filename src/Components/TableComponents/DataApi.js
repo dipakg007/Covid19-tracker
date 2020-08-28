@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from 'react';
 import './Table.css';
 
-import ColTable from './ColTable'
+import ColTable from './ColTable';
 
 function DataApi() {
 
