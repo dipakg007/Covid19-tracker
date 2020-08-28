@@ -2,9 +2,24 @@ import React from "react";
 import "./InfoBox.css";
 import { Card, CardContent, Typography } from "@material-ui/core";
 
-function InfoBox({ title, cases, total, image }) {
+function InfoBox({
+  title,
+  active,
+  cases,
+  total,
+  image,
+  isCases,
+  isRecovered,
+  isDeaths,
+  ...props
+}) {
   return (
-    <Card className="infoBox">
+    <Card
+      onClick={props.onClick}
+      className={`infoBox ${active && "infoBox--selected"} ${
+        isCases && "infoBox--cases"
+      }`}
+    >
       <CardContent>
         <div className="infoBox__main">
           <div className="infoBox__left">
