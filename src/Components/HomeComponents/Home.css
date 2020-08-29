@@ -1,6 +1,5 @@
 .home__header {
   display: flex;
-  margin-top: 30px;
   margin-bottom: 30px;
   justify-content: space-between;
 }
@@ -11,8 +10,12 @@
 .home__headercomp {
   display: flex;
 }
+.header__card {
+  border: 1px solid lightgray;
+  border-radius: 18px !important;
+}
 .home__headercomp h1 {
-  margin-left: 20px;
+  margin-left: 25px;
   font-weight: bold;
 }
 .homedrop__item {
@@ -30,7 +33,7 @@
 .home__stats {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   cursor: pointer;
 }
 .home__graph {
@@ -40,6 +43,7 @@
 .home__graphbox {
   flex: 1 !important;
   border: 0.1px solid lightgrey !important;
+  border-radius: 18px !important;
 }
 .home__graphbox:not(:last-child) {
   margin-right: 20px;

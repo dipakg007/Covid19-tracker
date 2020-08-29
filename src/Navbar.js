@@ -9,12 +9,12 @@ import NoteAddRoundedIcon from "@material-ui/icons/NoteAddRounded";
 
 function Navbar() {
   return (
-    <div className="container-fluid nav_bg">
+    <div className="container-fluid nav_bg navbar__final">
       <div className="row navbar__row">
         <div className="col-11 mx-auto">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <NavLink to="/">
-              <img className="navbar__logo" src={logo} alt="Covid19-tracker"/>
+              <img className="navbar__logo" src={logo} alt="Covid19-tracker" />
             </NavLink>
             <button
               className="navbar-toggler"

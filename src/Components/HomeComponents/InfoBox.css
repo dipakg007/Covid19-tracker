@@ -1,6 +1,7 @@
 .infoBox {
   flex: 1 !important;
   border: 0.1px solid lightgrey;
+  border-radius: 18px !important;
 }
 .infoBox:not(:last-child) {
   margin-right: 20px;

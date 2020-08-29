@@ -14,6 +14,9 @@
 .navbar {
   background-color: hsl(0, 0%, 95%) !important;
 }
+.navbar__final {
+  margin-bottom: 30px;
+}
 .navbar__row {
   background-color: hsl(0, 0%, 95%) !important;
   justify-content: space-around !important;
@@ -32,7 +35,6 @@
 }
 .navbar a:hover {
   color: #09acae !important;
-
 }
 @media (max-width: 991px) {
   .menu__active {

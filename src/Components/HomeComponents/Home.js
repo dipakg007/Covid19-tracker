@@ -100,10 +100,18 @@ function Home() {
       <div className="row">
         <div className="col-11 mx-auto">
           <div className="home__header">
-            <div className="home__headercomp">
-              <img src={logo} alt="Covid19-tracker" className="home__logo" />
-              <h1>STATISTICS</h1>
-            </div>
+            <Card className="header__card">
+              <CardContent>
+                <div className="home__headercomp">
+                  <img
+                    src={logo}
+                    alt="Covid19-tracker"
+                    className="home__logo"
+                  />
+                  <h1>STATISTICS</h1>
+                </div>
+              </CardContent>
+            </Card>
             <div>
               <FormControl className="home__dropdown">
                 <Select

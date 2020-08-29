@@ -1,0 +1,9 @@
+.landing {
+  display: flex !important;
+}
+.landing__left {
+  flex: 0.75;
+}
+.landing__right {
+  flex: 0.35;
+}
