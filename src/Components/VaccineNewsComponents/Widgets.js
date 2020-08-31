@@ -3,6 +3,7 @@ import {
   TwitterTimelineEmbed,
   TwitterShareButton,
   TwitterTweetEmbed,
+  TwitterVideoEmbed,
 } from "react-twitter-embed";
 import "./Widgets.css";
 import SearchIcon from "@material-ui/icons/Search";
@@ -14,13 +15,16 @@ function Widgets() {
         <SearchIcon className="widgets__searchIcon" />
         <input placeholder="Search Twitter" type="text" />
       </div>
-
       <div className="widgets__widgetContainer">
         <TwitterTimelineEmbed
           sourceType="profile"
-          screenName="who"
+          screenName="CovidnewsbyMIB"
           options={{ height: 500 }}
+          noScrollbar
         />
+      </div>
+      <div className="widgets__widgetVideo">
+        <TwitterVideoEmbed id="1299977672370475010" />
       </div>
     </div>
   );
