@@ -7,6 +7,11 @@ import Link from "./Link";
 import Treatments from "./Treatments";
 
 
+const heading = {
+      backgroundColor: '#80ffd4', 
+      padding: '5%', 
+      textAlign: 'center', 
+    };
 
 function Symtoms() {
   
@@ -18,8 +23,9 @@ function Symtoms() {
                 <Prevention />
               </div>
               <Treatments />
+              <Link />
             </div>
-            <Link />
+           
             
           </>
   );
