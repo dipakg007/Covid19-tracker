@@ -8,9 +8,9 @@ function Symp() {
   return (
     <div>
       <div className="symp__image symp__comp">
-        <img src={Fever} className="s__image"></img>
-        <img src={Cough} className="s__image"></img>
-        <img src={Tired} className="s__image"></img>
+        <img src={Fever} alt="" className="s__image"></img>
+        <img src={Cough} alt="" className="s__image"></img>
+        <img src={Tired} alt="" className="s__image"></img>
       </div>
       <div className="symp__comp">
         <p>

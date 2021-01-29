@@ -9,7 +9,6 @@ import {
   Table,
   Avatar,
   makeStyles,
-  TableHead,
 } from "@material-ui/core";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";

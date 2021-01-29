@@ -5,7 +5,6 @@ import "./Navbar.css";
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 import AssignmentRoundedIcon from "@material-ui/icons/AssignmentRounded";
 import AccessibilityNewRoundedIcon from "@material-ui/icons/AccessibilityNewRounded";
-import NoteAddRoundedIcon from "@material-ui/icons/NoteAddRounded";
 
 function Navbar() {
   return (

@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  TwitterTimelineEmbed,
-  TwitterShareButton,
-  TwitterTweetEmbed,
-  TwitterVideoEmbed,
-} from "react-twitter-embed";
+import { TwitterTimelineEmbed, TwitterVideoEmbed } from "react-twitter-embed";
 import "./Widgets.css";
 
 function Widgets() {

@@ -27,16 +27,7 @@ function Home() {
   const [countryInfo, setCountryInfo] = useState({});
   const [countryName, setCountryName] = useState("Worldwide");
   const [days, setdays] = useState(30);
-  const [totalDays, setTotalDays] = useState([
-    15,
-    30,
-    45,
-    60,
-    90,
-    120,
-    150,
-    180,
-  ]);
+  const [totalDays] = useState([15, 30, 45, 60, 90, 120, 150, 180]);
   const [flag, setFlag] = useState(globe);
   const [mapCenter, setMapCenter] = useState({ lat: 20, lng: 77 });
   const [mapZoom, setMapZoom] = useState(3);
