@@ -98,7 +98,7 @@ function Home() {
   return (
     <div className="container-fluid nav_bg">
       <div className="row">
-        <div className="col-11 mx-auto">
+        <div className="col-10 mx-auto">
           <div className="home__header">
             <Card className="header__card">
               <CardContent>

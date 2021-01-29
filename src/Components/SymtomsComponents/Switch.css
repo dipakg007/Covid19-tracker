@@ -1,0 +1,28 @@
+.switch {
+  border-bottom: 1px solid lightgray;
+}
+.switch__comp {
+  display: flex;
+  justify-content: space-evenly;
+}
+.switch__comp li {
+  list-style-type: none;
+}
+.symp__comp {
+  margin: 15px;
+}
+.symp__comp ul {
+  margin: 0px !important;
+}
+.s__image {
+  width: 100px;
+  /* height: px; */
+  margin-left: 120px;
+}
+.symp__image {
+  justify-content: space-between;
+}
+.p__image {
+  height: 400px;
+  width: auto;
+}

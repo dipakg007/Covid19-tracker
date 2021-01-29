@@ -7,7 +7,6 @@ import Navbar from "./Navbar";
 import Home from "./Components/HomeComponents/Home";
 import Table from "./Components/TableComponents/Table";
 import Symptoms from "./Components/SymtomsComponents/Symtoms";
-import VaccineNews from "./Components/VaccineNewsComponents/VaccineNews";
 
 function App() {
   return (
@@ -18,12 +17,10 @@ function App() {
           <Route path="/tables">
             <Table />
           </Route>
-          <Route path="/symtoms">
+          <Route path="/symtoms/symp">
             <Symptoms />
           </Route>
-          <Route path="/vaccine">
-            <VaccineNews />
-          </Route>
+
           <Route path="/">
             <Home />
           </Route>

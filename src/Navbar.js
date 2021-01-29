@@ -11,7 +11,7 @@ function Navbar() {
   return (
     <div className="container-fluid nav_bg navbar__final">
       <div className="row navbar__row">
-        <div className="col-11 mx-auto">
+        <div className="col-10 mx-auto">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <NavLink to="/">
               <img className="navbar__logo" src={logo} alt="Covid19-tracker" />
@@ -58,20 +58,10 @@ function Navbar() {
                   <NavLink
                     activeClassName="menu__active"
                     className="nav-link"
-                    to="/symtoms"
+                    to="/symtoms/symp"
                   >
                     <AccessibilityNewRoundedIcon className="nav__icons" />
                     Symtoms
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink
-                    activeClassName="menu__active"
-                    className="nav-link"
-                    to="/vaccine"
-                  >
-                    <NoteAddRoundedIcon className="nav__icons" />
-                    Vaccine
                   </NavLink>
                 </li>
               </ul>

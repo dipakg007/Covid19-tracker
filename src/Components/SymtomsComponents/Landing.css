@@ -7,3 +7,7 @@
 .landing__right {
   flex: 0.35;
 }
+.landing__card {
+  border-radius: 20px !important;
+  border: 1px solid lightgray;
+}
