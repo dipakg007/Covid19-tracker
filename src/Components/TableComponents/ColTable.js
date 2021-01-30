@@ -1,21 +1,17 @@
-import React,{useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import MultCheck from './MultipleSelect';
-import { TextField } from '@material-ui/core';
-import './Table.css';
-import EnhancedTableHead from './EnhanceTableHead';
-import Row from './Row';
-
-
-
-
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+import MultCheck from "./MultipleSelect";
+import { TextField } from "@material-ui/core";
+import "./Table.css";
+import EnhancedTableHead from "./EnhanceTableHead";
+import Row from "./Row";
 
 const useRowStyles = makeStyles({
   root: {
@@ -94,40 +90,42 @@ export default function ColTable({ covid, column }) {
           className={classes.root}
         />
       </div>
-      <TableContainer component={Paper} className={classes.container}>
-        <Table stickyHeader aria-label="collapsible table sticky table">
-          <TableHead>
-            <TableRow>
-              <TableCell className="table_data" />
-              <TableCell className="table_data">FLAG</TableCell>
-              <TableCell className="table_data">COUNTRY</TableCell>
-              <EnhancedTableHead
-                classes={classes}
-                order={order}
-                orderBy={orderBy}
-                onRequestSort={handleRequestSort}
-                headCells={[...static_header, ...header]}
-                headCellsId={[...static_headerId, ...headerId]}
-              />
-              {/* {
+      <div className="main__table">
+        <TableContainer component={Paper} className={classes.container}>
+          <Table stickyHeader aria-label="collapsible table sticky table">
+            <TableHead>
+              <TableRow>
+                <TableCell className="table_data" />
+                <TableCell className="table_data">FLAG</TableCell>
+                <TableCell className="table_data">COUNTRY</TableCell>
+                <EnhancedTableHead
+                  classes={classes}
+                  order={order}
+                  orderBy={orderBy}
+                  onRequestSort={handleRequestSort}
+                  headCells={[...static_header, ...header]}
+                  headCellsId={[...static_headerId, ...headerId]}
+                />
+                {/* {
             [...static_header,...header].map((head)=>(
               <TableCell align="right">{head.toUpperCase()}</TableCell>
             ))} */}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {stableSort(filterdata, getComparator(order, orderBy)).map(
-              (row, index) => (
-                <Row
-                  key={index}
-                  row={row}
-                  head={[...static_header, ...header]}
-                />
-              )
-            )}
-          </TableBody>
-        </Table>
-      </TableContainer>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {stableSort(filterdata, getComparator(order, orderBy)).map(
+                (row, index) => (
+                  <Row
+                    key={index}
+                    row={row}
+                    head={[...static_header, ...header]}
+                  />
+                )
+              )}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
     </div>
   );
 }

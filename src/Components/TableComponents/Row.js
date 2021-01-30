@@ -12,6 +12,8 @@ import {
 } from "@material-ui/core";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+import numeral from "numeral";
+
 const useRowStyles = makeStyles({
   root: {
     "& > *": {
@@ -47,7 +49,9 @@ function Row({ key, row, head }) {
         </TableCell>
 
         {head.map((name) => (
-          <TableCell align="right">{row[name]}</TableCell>
+          <TableCell align="right">
+            {numeral(row[name]).format("0,0")}
+          </TableCell>
         ))}
       </TableRow>
       <TableRow>
