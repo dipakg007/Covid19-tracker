@@ -7,6 +7,7 @@ import Navbar from "./Navbar";
 import Home from "./Components/HomeComponents/Home";
 import Table from "./Components/TableComponents/Table";
 import Symptoms from "./Components/SymtomsComponents/Symtoms";
+import About from "./Components/AboutComponents/About";
 
 function App() {
   return (
@@ -20,7 +21,9 @@ function App() {
           <Route path="/symtoms/symp">
             <Symptoms />
           </Route>
-
+          <Route path="/about">
+            <About />
+          </Route>
           <Route path="/">
             <Home />
           </Route>

@@ -11,7 +11,7 @@ function Table() {
           <Card className="table">
             <CardContent>
               <h3 className="table__heading">
-                Report Cases and Deaths by Country or Territory (COVID-19)
+                Situation by Country, Territory or Area (COVID 19)
               </h3>
               <DataApi />
             </CardContent>

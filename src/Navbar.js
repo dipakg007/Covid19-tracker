@@ -5,6 +5,7 @@ import "./Navbar.css";
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 import AssignmentRoundedIcon from "@material-ui/icons/AssignmentRounded";
 import AccessibilityNewRoundedIcon from "@material-ui/icons/AccessibilityNewRounded";
+// import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 
 function Navbar() {
   return (
@@ -63,6 +64,16 @@ function Navbar() {
                     Symtoms
                   </NavLink>
                 </li>
+                {/* <li className="nav-item">
+                  <NavLink
+                    activeClassName="menu__active"
+                    className="nav-link"
+                    to="/about"
+                  >
+                    <AssignmentIndIcon className="nav__icons" />
+                    About Me
+                  </NavLink>
+                </li> */}
               </ul>
             </div>
           </nav>
