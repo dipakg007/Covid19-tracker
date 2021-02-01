@@ -1,0 +1,12 @@
+.upper {
+  flex: 1;
+  border: 1px solid lightgray;
+  margin-bottom: 2rem;
+  background-color: white;
+}
+.upper__logo {
+  max-width: 80%;
+  height: 80vh;
+  object-fit: contain;
+  border-right: 1px solid lightgray;
+}
